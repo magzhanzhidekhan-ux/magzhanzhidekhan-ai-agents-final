@@ -1,5 +1,60 @@
 # AI Agents — Final Project
 
+# AI Inventory Management Agent
+
+A multi-step LLM agent that checks stock, analyses sales and prepares restock drafts for approval.
+All data is fictional and local. Nothing is sent to a real supplier. Never commit `.env`.
+
+**Status (week 11):** LLM client and first real request work. Tools and the agent loop come in weeks 12-14.
+
+## Requirements
+- Python 3.12.1 (Windows, PowerShell)
+- An OpenAI API key and access to the model `gpt-5.6-luna`
+
+## Setup
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+copy .env.example .env      # then edit .env
+```
+In `.env` set:
+```
+OPENAI_API_KEY=your-key-here
+MODEL_NAME=gpt-5.6-luna
+```
+
+## Run
+```powershell
+python scripts\make_sample_data.py                       # creates data\sales.json (fixed seed)
+$env:PYTHONPATH="src"; python -m inventory_agent.first_request   # first real model request
+python -m pytest -q                                      # tests, no API key needed
+```
+Expected: the model lists the products below their reorder point (SKU-1001, SKU-1003, SKU-2002, SKU-3001) and `match: True` means it agrees with a plain-code calculation. Output of my run: `outputs/week-11-first-request.txt`.
+
+## Project layout
+| Path | What it is |
+|---|---|
+| `src/inventory_agent/llm_client.py` | The only module that talks to the model; wraps every failure in `LLMError` |
+| `src/inventory_agent/first_request.py` | First real request, checked against a code calculation |
+| `data/products.json`, `data/sales.json` | Fictional products and 90 days of sales (includes edge cases) |
+| `scripts/make_sample_data.py` | Generates `sales.json` |
+| `tests/` | Tests with a clearly labelled fake model (no API key) |
+| `reports/` | Proposal and weekly reports |
+
+## Design notes
+- Reasoning is set to `none` (`REASONING_EFFORT` can override it) because this model rejects function tools while reasoning is on (needed from week 13).
+- Errors (missing key, API failure, empty answer) become one readable `LLMError` instead of a crash.
+- The product `notes` field includes an injected instruction in SKU-3002, reserved for the prompt-injection guardrail test (week 15). Notes are not sent to the model yet.
+
+## AI assistance
+I use Claude (claude.ai) for planning and code drafts. I run, test and correct everything myself.
+
+---
+
+# Original course instructions
+(the instructor's README follows below)
+
 **CSS 4007 — Artificial Intelligence · Individual project · Your choice of topic**
 
 **Start: 2 November 2026. Final deadline: 22 December 2026, 23:59 (Asia/Oral, UTC+05:00).**

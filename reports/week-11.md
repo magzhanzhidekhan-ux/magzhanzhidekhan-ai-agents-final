@@ -12,7 +12,7 @@
 
 - Commit hash: [ВСТАВЬТЕ] — Description: project setup and fictional data with edge cases.
 - Commit hash: [ВСТАВЬТЕ] — Description: LLM client with error handling, first request, 5 tests.
-- Link: https://github.com/[ВСТАВЬТЕ-ник]/css4007-ai-agents-final/commits/main
+- Link: https://github.com/magzhanzhidekhan-ux/magzhanzhidekhan-ai-agents-final/commits/main
 
 ## Current Functionality
 

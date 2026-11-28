@@ -1,0 +1,10 @@
+{
+  "request": "Reorder SKU-9999.",
+  "approve_mode": "ask",
+  "answer": "I can’t reorder SKU-9999 because no inventory lookup was performed, and I can only create a restock draft—not place an order.",
+  "stop_reason": "completed",
+  "steps": 1,
+  "tool_calls": 0,
+  "trace": [],
+  "drafts": []
+}

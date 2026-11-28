@@ -1,0 +1,29 @@
+{
+  "draft_id": "DRAFT-fcadf729",
+  "status": "draft",
+  "note": "Local draft only. Nothing was ordered.",
+  "items": [
+    {
+      "sku": "SKU-1001",
+      "name": "Wireless Mouse",
+      "quantity": 42,
+      "unit_cost": 8.5,
+      "cost": 357.0
+    },
+    {
+      "sku": "SKU-1003",
+      "name": "Mechanical Keyboard",
+      "quantity": 23,
+      "unit_cost": 32.0,
+      "cost": 736.0
+    },
+    {
+      "sku": "SKU-2002",
+      "name": "Gel Pen Blue",
+      "quantity": 104,
+      "unit_cost": 0.4,
+      "cost": 41.6
+    }
+  ],
+  "total_cost": 1134.6
+}

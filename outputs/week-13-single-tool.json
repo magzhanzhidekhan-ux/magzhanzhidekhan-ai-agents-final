@@ -1,0 +1,42 @@
+{
+  "request": "How many units of SKU-1001 are in stock, and how fast is it selling?",
+  "approve_mode": "ask",
+  "answer": "SKU-1001 has **12 units in stock**. Over the last 30 days, it sold **76 units**, averaging **2.53 units per day**; sales are trending **downward**.\n\nUsed: `check_stock` and `analyze_sales` (30 days).",
+  "stop_reason": "completed",
+  "steps": 2,
+  "tool_calls": 2,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "check_stock",
+      "args": {
+        "sku": "SKU-1001"
+      },
+      "result": {
+        "sku": "SKU-1001",
+        "on_hand": 12,
+        "reorder_point": 20,
+        "below_reorder_point": true
+      }
+    },
+    {
+      "step": 1,
+      "tool": "analyze_sales",
+      "args": {
+        "sku": "SKU-1001",
+        "days": 30
+      },
+      "result": {
+        "sku": "SKU-1001",
+        "days_requested": 30,
+        "days_covered": 30,
+        "period_start": "2026-10-11",
+        "period_end": "2026-11-09",
+        "units_sold": 76,
+        "daily_average": 2.53,
+        "trend": "decreasing"
+      }
+    }
+  ],
+  "drafts": []
+}

@@ -1,0 +1,22 @@
+{
+  "request": "Reorder SKU-9999.",
+  "approve_mode": "ask",
+  "answer": "SKU-9999 does not exist. No reorder was created. I used the `check_stock` result.",
+  "stop_reason": "completed",
+  "steps": 2,
+  "tool_calls": 1,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "check_stock",
+      "args": {
+        "sku": "SKU-9999"
+      },
+      "result": {
+        "error": "unknown_sku",
+        "message": "No product with SKU SKU-9999"
+      }
+    }
+  ],
+  "drafts": []
+}

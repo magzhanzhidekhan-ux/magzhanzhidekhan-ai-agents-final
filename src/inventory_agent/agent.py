@@ -16,7 +16,8 @@ You can act only through the tools. Rules:
 - To find at-risk products: get_products, then check_stock and analyze_sales or suggest_restock for them.
 - Call create_restock_draft only when the user asked for a plan or draft. The application asks the user to approve it. If it returns approval_denied, say that nothing was saved.
 - You cannot choose file paths. A draft is only a local file; nothing is ordered.
-- Answer briefly and say which tool results you used."""
+- Answer briefly and say which tool results you used.
+- When the user names a SKU, always call check_stock for it first. If the tool returns unknown_sku, tell the user that this product does not exist."""
 
 
 def _text(msg):
